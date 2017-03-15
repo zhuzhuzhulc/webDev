@@ -1,0 +1,12 @@
+<h3 class = "text-primary">Followers</h3>
+<span>
+
+<input id = "followinput" type="text" class="form-control" ng-model="addFollowedUser">
+<button id = "followaddbtn" class="btn btn-primary" type="button" ng-click="vm.addFollowedUser(addFollowedUser); addFollowedUser=null">Add</button>
+</span>
+
+<div ng-repeat="user in vm.followingUsers">
+<img ng-src="{{vm.followmap[user]['pic']}}" alt="profilepic" class="img-circle Column" width="20" height="20">
+<span id="following">{{user}}</span>{{" says: "+vm.followmap[user]['status']}}
+<input id = "delfollowbtn" type="button" class="btn btn-primary" ng-click="vm.deleteFollowing(user)" value="Delete">
+</div>

@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-sm-3">
+        <div ng-include="'status/status.html'" ng-controller="StatusCtrl as vm"></div>
+        <div ng-include="'following/following.html'" ng-controller="FollowingCtrl as vm"></div>
+    </div>
+    <div class="col-sm-9" ng-include="'post/post.html'" ng-controller="PostCtrl as vm"></div>
+</div>

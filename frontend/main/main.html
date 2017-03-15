@@ -1,0 +1,97 @@
+<h1  class="bg-primary" >This is Main Page</h1>
+
+<div class = "row">
+<div class= "col-sm-2">
+<div>
+    <input id = "logoutbtn" type='button' class="btn btn-primary" ng-click='vm.logout()' value='logout'>
+    <input type='button' id = "profilebtn" class="btn btn-primary" ng-click='vm.goProfile()' value='ProfilePage'>
+</div>
+<img ng-src="{{vm.profilepic}}" alt="profilepic" class="img-circle" style="width:200px;height:150px;">
+User status message:<p id = "status"> {{ vm.userStatus }}</p>
+<p>
+  <input id = "statusinput" type="text" ng-model="vm.newUserStatus" placeholder="status message">
+  <input id = "statusbtn" type="button" class="btn btn-primary" ng-click="vm.updateStatus()" value="Save">
+</p>
+
+    <h3 class = "text-primary">Followers</h3>
+    <span>
+
+    <input id = "followinput" type="text" class="form-control" ng-model="addFollowedUser">
+    <button id = "followaddbtn" class="btn btn-primary" type="button" ng-click="vm.addFollowedUser(addFollowedUser); addFollowedUser=null">Add</button>
+    </span>
+
+    <div ng-repeat="user in vm.followingUsers">
+    <img ng-src="{{vm.followmap[user]['pic']}}" alt="profilepic" class="img-circle Column" width="20" height="20">
+    <span id="following">{{user}}</span>{{" says: "+vm.followmap[user]['status']}}
+    <input id = "delfollowbtn" type="button" class="btn btn-primary" ng-click="vm.deleteFollowing(user)" value="Delete">
+    </div>
+
+</div>
+<div class = "col-sm-10">
+<div class="container">
+<section>
+  <textarea class="form-control" rows="5" id = "postinput" placeholder="post body" ng-model="vm.newPostBody">awwwww</textarea>
+  <span class="btn btn-secondary btn-file">
+
+    <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.setUploadImage(this)" >
+  </span>
+  <input type="button" id = "postbtn" class="btn btn-primary" value="Post" ng-click="vm.addPost()">
+</section>
+
+
+  <section>
+    <label for="search">Search</label>
+    <input type="text" placeholder="search keyword" ng-model="vm.searchKeyword" id="searchinput">
+  </section>
+</div>
+<div class="container">
+  <section ng-repeat="post in vm.posts | filter: vm.searchKeyword">
+  	<h3>Title: {{post.title}} Author: {{post.author}} Time:{{post.date}}</h3>
+    <div ng-if="post.img">
+     <img class="card-img-top" ng-src="{{post.img}}" alt="Card image cap" style="width:30%"></img>
+   </div>
+  	<p id = "postbody">{{post.body}}</p>
+  	<input type="button" class="btn btn-primary" value="Delete" ng-click="vm.removePost(post.id)">
+    <input type="button" class="btn btn-primary" value="Edit" ng-click="showEdit = true; hideEdit = false">
+      <div ng-show="showEdit">
+        <div ng-hide = "hideEdit">
+          <textarea class="form-control" rows="5" placeholder="new body" ng-model="vm.editPostBody"></textarea><br>
+          <input type="button" class="btn btn-primary" value="Submit Edit" ng-click="hideEdit = true; showEdit = false;vm.editPosts(post.id)">
+        </div>
+      </div>
+
+
+
+
+    <input type="button" class="btn btn-primary" value="Show Comment" ng-click="showComment = true ; hideComment = false">
+    <div ng-show="showComment">
+      <input type="button" class="btn btn-primary" value="Hide Comment" ng-click="hideComment = true; showComment = false">
+      <div ng-hide="hideComment">
+      <div class="container">
+      <textarea class="form-control" rows="3" placeholder="new comment" ng-model="vm.newcomment"></textarea><br>
+      <input type="button" class="btn btn-primary" value="New Comment" ng-click="vm.newComment(post.id)">
+        <section ng-repeat="comment in post.comments">
+              <td>
+                  <p>
+                      <small>{{comment.date}}</small>
+                  </p>
+                  <p>
+                      <strong>{{comment.author}}</strong>
+                      {{comment.body}}
+                  </p>
+              </td>
+              <input type="button" class="btn btn-primary" value="EditComment" ng-click="showEditComment = true; hideEditComment = false">
+                <div ng-show="showEditComment">
+                  <div ng-hide = "hideEditComment">
+                    <textarea class="form-control" rows="3" placeholder="new body" ng-model="vm.editcomment"></textarea><br>
+                    <input type="button" class="btn btn-primary" value="Submit Edit" ng-click="hideEditComment = true; showEditComment = false;vm.editComment(post.id,comment.commentId)">
+                  </div>
+                </div>
+          </section>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>

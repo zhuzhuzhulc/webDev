@@ -1,0 +1,4 @@
+{
+  "CLOUDINARY_URL": "cloudinary://617279248449234:kJrZAwDQW8UYODbctx_JPA4DZg4@hwfxjjxfx",
+  "REDIS_URL": "redis://h:p1kau3657ummlo5psmmobgrql4k@ec2-54-227-252-91.compute-1.amazonaws.com:12739"
+}

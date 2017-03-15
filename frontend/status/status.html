@@ -1,0 +1,10 @@
+<div>
+    <input id = "logoutbtn" type='button' class="btn btn-primary" ng-click='vm.logout()' value='logout'>
+    <input type='button' id = "profilebtn" class="btn btn-primary" ng-click='vm.goProfile()' value='ProfilePage'>
+</div>
+<img ng-src="{{vm.profilepic}}" alt="profilepic" class="img-circle" style="width:200px;height:150px;">
+User status message:<p id = "status"> {{ vm.userStatus }}</p>
+<p>
+  <input id = "statusinput" type="text" ng-model="vm.newUserStatus" placeholder="status message">
+  <input id = "statusbtn" type="button" class="btn btn-primary" ng-click="vm.updateStatus()" value="Save">
+</p>

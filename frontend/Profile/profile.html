@@ -1,0 +1,39 @@
+<input type='button' class="btn btn-primary" ng-click='vm.goMain()' value='MainPage'>
+<a href = 'http://cl40hw8.herokuapp.com/unlinkAcc'>unlink</a>
+
+<input id="popoverData" type='button' class="btn btn-primary" ng-click='vm.goLanding()' value='Link Account'  data-content="Popover with data-trigger" rel="popover" data-placement="bottom" data-trigger="hover">
+
+<div class = "container">
+<div class="row">
+  <div class="col-sm-5 well">
+    <h3 class="text-primary">Update Profile</h3>
+    <img ng-src="{{vm.profilepic}}" alt="profilepic" class="img-circle" style="width:200px;height:150px;">
+    <span class="btn btn-primary"  value ="Update Profile Picture" ng-click="vm.UploadImage()">
+    Update Profile Image
+    </span>
+    <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.setUploadImage(this)" >
+
+    <p>New email: <input id = "emailinput" type = "email" ng-model = "email"></input>
+    <input class="btn-primary" id = "emailbtn" type = "submit" value = "Update Email" ng-click = " vm.UpdateEmail(email); email = null"></p>
+    <p>New Zipcode: <input id = "zipcodeinput" type = "text" ng-model = "zipcode"></input>
+    <input class="btn-primary" id = "zipcodebtn" type = "submit" value = "Update Zipcode" ng-click = " vm.UpdateZipcode(zipcode); zipcode = null"></p>
+    <p>New Password: <input id = "pwdinput" type = "password" ng-model = "password"></input></p>
+    <p>New Password Confirmation: <input id = "pwdconfirminput" type = "password" ng-model = "passwordconfirm"></input>
+    <input id = "pwdbtn" class="btn-primary" type = "submit" value = "Update Password" ng-click = " vm.updatePassword(password,passwordconfirm);password=null;passwordconfirm=null"></p>
+    <p id = 'pwdmsg'></p>
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-5 well">
+    <h3 class="text-primary">Current Profile</h3>
+    <p id = "name">Current Name: Cheng Li</p>
+    <p>Current Email:<span id = "email"> {{vm.email}} </span></p>
+    <p id = "phone">Current Phone Number: 281-795-9990</p>
+    <p>Current Zipcode: <span id = "zipcode">{{vm.zipcode}}</span></p>
+  </div>
+
+</div>
+</div>
+
+
+<script src = 'profile.js'></script>

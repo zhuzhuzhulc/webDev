@@ -1,0 +1,28 @@
+<h1  class="bg-primary" >This is Landing Page</h1>
+<a href = 'http://cl40hw8.herokuapp.com/authfacebook'>fb</a>
+<input type='button' id = "logoutbtn" class="btn btn-primary" ng-click='vm.logout()' value='Logout'></input>
+<div class = "container">
+  <h2 class = "bg-info"> Sign In</h2>
+  <p id = "loginMsg">You are Not Logged In </p>
+  <div>
+    <input type='text' id = "loginName"ng-model='vm.username' placeholder='username'></input>
+    <input type='password' id = "loginPwd" ng-model='vm.password' placeholder='password'></input>
+    <input type='button' id = "loginbtn" class="btn btn-primary" ng-click='vm.login()' value='Login'></input>
+    <input type='button' class="btn btn-primary" ng-click='vm.logout()' value='logout'></input>
+  </div>
+  <h2 class = "bg-info"> Sign Up</h2>
+  <div>
+    <p>Account Name: <input type = "text" ng-model = "vm.newname" id = "newname" name = "account_name" required></p>
+    <p>Email Address: <input type = "email" ng-model = "vm.newemail" id = "newemail" name = "email" required></p>
+    <p>Phone Number: <input type = "text" ng-model = "vm.newphone" id = "newphone" name = "phone"required pattern = "\d{3}[\-]\d{3}[\-]\d{4}"> (Example:xxx-xxx-xxxx)</p>
+    <p>Zip Code: <input type = "text" ng-model = "vm.newzipcode" id = "newzipcode" name = "zipcode" required ></p>
+    <p>Password: <input type = "password" ng-model = "vm.newpassword" id = "newpwd" name = "password"></p>
+    <p>Password Confirmation: <input type = "password" ng-model = "vm.newpasswordconfirm" id = "newpwdconfirm" name = "passwordconfirm"></p>
+
+  <p>
+    <button ng-click="vm.clearRegistrationForm()" type="button" class="btn btn-default">Clear</button>
+    <button ng-click="vm.submitInputs(vm.newname, vm.newemail, vm.newphone, vm.newzipcode,vm.newpassword)" id = "registerbtn" type="button" class="btn btn-primary">Submit</button>
+  </p>
+  <p id = registerMsg></p>
+  </div>
+</div>

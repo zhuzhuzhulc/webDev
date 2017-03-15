@@ -1,0 +1,16 @@
+{
+  "name": "e2e-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor protractor.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+       "jasmine-core": "^2.3.4",
+       "jasmine-reporters": "^2.0.7"
+  }
+}
